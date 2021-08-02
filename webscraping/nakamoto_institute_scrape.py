@@ -11,4 +11,3 @@ with webdriver.Firefox() as driver:
     driver.find_element(By.NAME, "q").send_keys("cheese" + Keys.RETURN)
     first_result = wait.until(presence_of_element_located((By.CSS_SELECTOR, "h3")))
     print(first_result.get_attribute("textContent"))
-  
