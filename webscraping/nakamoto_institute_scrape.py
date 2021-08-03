@@ -7,6 +7,7 @@ from selenium.webdriver.support.expected_conditions import presence_of_element_l
 #This example requires Selenium WebDriver 3.13 or newer
 parent_articles = []
 child_articles = []
+data =[]
 
 with webdriver.Firefox() as driver:
     wait = WebDriverWait(driver, 10)
@@ -29,4 +30,21 @@ with webdriver.Firefox() as driver:
     # Iterate through child articles and get content
     for article in child_articles:
         driver.get(article)
-        print(driver.find_element_by_xpath("//h1").text)
+
+        section_header = driver.find_element(By.NAME, "h2")
+        section = driver.find_element(By.NAME, "p")
+
+        completion = ''
+        for id, section in enumerate(section):
+            completion += f"{section_header[id]}  {section[id]}"
+
+
+        obj = {
+            'prompt': driver.find_element_by_xpath("//h2").text,
+            'completion': completion
+        }
+        data.append(obj)
+
+for d in data:
+    print(d)
+    print("\n")
