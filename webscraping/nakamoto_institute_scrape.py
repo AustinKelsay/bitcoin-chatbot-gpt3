@@ -1,3 +1,4 @@
+import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -45,6 +46,9 @@ with webdriver.Firefox() as driver:
         }
         data.append(obj)
 
-for d in data:
-    print(d)
-    print("\n")
+
+# Output training data to json file
+with open('nakamoto_institute_articles.json', 'w') as outfile:
+    for d in data:
+        json.dump(d, outfile)
+        outfile.write('\n')
