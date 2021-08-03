@@ -31,16 +31,16 @@ with webdriver.Firefox() as driver:
     for article in child_articles:
         driver.get(article)
 
-        section_header = driver.find_element(By.NAME, "h2")
-        section = driver.find_element(By.NAME, "p")
+        section_header = driver.find_elements_by_xpath("//h2")
+        section = driver.find_elements_by_xpath("//p")
 
         completion = ''
-        for id, section in enumerate(section):
-            completion += f"{section_header[id]}  {section[id]}"
+        for sec in section:
+            completion += sec.text
 
 
         obj = {
-            'prompt': driver.find_element_by_xpath("//h2").text,
+            'prompt': driver.find_element_by_xpath("//h1").text,
             'completion': completion
         }
         data.append(obj)
