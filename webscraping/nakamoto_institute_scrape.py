@@ -12,16 +12,21 @@ with webdriver.Firefox() as driver:
     wait = WebDriverWait(driver, 10)
     driver.get("https://nakamotoinstitute.org/literature/")
 
+    # Get parent articles
     articles = driver.find_elements_by_xpath("//a[@href]")
     for article in articles:
         if "/literature/" in article.get_attribute("href"):
-            driver.get(article.get_attribute("href"))
-            driver.implicitly_wait(2)
-            children = driver.find_elements_by_xpath("//a[@href]")
-            for child in children:
-                if child.text == "HTML":
-                    print("child " + child.get_attribute("href"))
-                # if child.text == "HTML":
-                #     child_articles.append(child.get_attribute("href"))
-                #     break
+            parent_articles.append(article.get_attribute("href"))
 
+    # Get child articles
+    for article in parent_articles:
+        driver.get(article)
+        articles = driver.find_elements_by_xpath("//a[@href]")
+        for article in articles:
+            if article.text == 'HTML':
+                child_articles.append(article.get_attribute("href"))
+
+    # Iterate through child articles and get content
+    for article in child_articles:
+        driver.get(article)
+        print(driver.find_element_by_xpath("//h1").text)
