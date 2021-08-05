@@ -33,6 +33,6 @@ def ask(question, chat_log=None):
     response = completion.create(
         prompt=prompt, model=model, stop=['\nWorld'], temperature=0.7,
         top_p=1, frequency_penalty=0, presence_penalty=0.6, best_of=1,
-        max_tokens=700)
+        max_tokens=500)
     answer = response.choices[0].text.strip()
     return answer
