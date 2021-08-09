@@ -2,6 +2,7 @@ import json
 from dotenv import load_dotenv
 import openai
 import os
+import keep_alive
 
 load_dotenv()
 openai.api_key = os.getenv("GPT3_API_KEY")
@@ -37,3 +38,6 @@ def ask(question, chat_log=None):
     answer = response.choices[0].text.strip()
 
     return answer
+
+
+keep_alive.keep_alive()
