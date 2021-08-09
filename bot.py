@@ -39,5 +39,9 @@ def ask(question, chat_log=None):
 
     return answer
 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> badc9e9bfaf04e8d13e6fa12e0facff32e5deea9
 keep_alive.keep_alive()
