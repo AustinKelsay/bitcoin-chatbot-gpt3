@@ -1,10 +1,8 @@
 import json
-from dotenv import load_dotenv
 import openai
 import os
 import keep_alive
 
-load_dotenv()
 openai.api_key = os.getenv("GPT3_API_KEY")
 completion = openai.Completion()
 
