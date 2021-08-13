@@ -20,6 +20,6 @@ def keep_alive():
 def ask_bot():
     question = request.json["question"]
     answer = bot.ask(question)
-    print(answer)
+
     return answer
     
