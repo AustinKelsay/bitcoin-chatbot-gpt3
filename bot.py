@@ -36,7 +36,7 @@ def ask(question, chat_log=None):
         top_p=1, frequency_penalty=0, presence_penalty=0.3, best_of=1,
         max_tokens=500)
     answer = response.choices[0].text.strip()
-
+    
     return answer
 
 keep_alive.keep_alive()
