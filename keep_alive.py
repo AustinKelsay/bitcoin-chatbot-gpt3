@@ -22,7 +22,6 @@ def ask_bot():
     answer = bot.ask(question)
 
     # run keep_alive everytime there is a request
-    keep_alive()
 
     return answer
     
