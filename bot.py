@@ -38,5 +38,3 @@ def ask(question, chat_log=None):
     answer = response.choices[0].text.strip()
     
     return answer
-
-keep_alive.keep_alive()

@@ -24,3 +24,4 @@ def ask_bot():
 
     return answer
     
+keep_alive()
