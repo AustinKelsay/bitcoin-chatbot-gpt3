@@ -1,7 +1,5 @@
-import json
 import openai
 import os
-import keep_alive
 
 openai.api_key = os.getenv("GPT3_API_KEY")
 completion = openai.Completion()
