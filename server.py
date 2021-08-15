@@ -1,9 +1,11 @@
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 from threading import Thread
 import bot
 
 app = Flask('')
+CORS(app)
 
 @app.route('/')
 def main():
