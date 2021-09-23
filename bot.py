@@ -7,8 +7,7 @@ completion = openai.Completion()
 model = os.getenv("FINE_TUNE_MODEL_V1")
 
 
-start_chat_log = '''Human: How does proof-of-work work in Bitcoin?
-AI: A proof of work is a piece of data which is difficult (costly, time-consuming) to produce but easy for others to verify and which satisfies certain requirements. Producing a proof of work can be a random process with low probability so that a lot of trial and error is required on average before a valid proof of work is generated. Bitcoin uses the Hashcash proof of work system.
+start_chat_log = '''Human: How does proof-of-work work in Bitcoin? AI: A proof of work is a piece of data which is difficult (costly, time-consuming) to produce but easy for others to verify and which satisfies certain requirements. Producing a proof of work can be a random process with low probability so that a lot of trial and error is required on average before a valid proof of work is generated. Bitcoin uses the Hashcash proof of work system.
 Human: What is a hash?
 AI: A hash is a function which takes a piece of data and converts it into a number.
 Human: What is SHA-256?
@@ -30,9 +29,9 @@ def ask(question, chat_log=None):
         chat_log = start_chat_log
     prompt = f'{chat_log}World: {question}\nAI:'
     response = completion.create(
-        prompt=prompt, model=model, stop=['\nWorld'], temperature=0.7,
+        prompt=prompt, model=model, stop=['\nHuman'], temperature=0.7,
         top_p=1, frequency_penalty=0, presence_penalty=0.3, best_of=1,
-        max_tokens=200)
+        max_tokens=50)
     answer = response.choices[0].text.strip()
     
     return answer
