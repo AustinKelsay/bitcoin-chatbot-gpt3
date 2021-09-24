@@ -21,7 +21,8 @@ def keep_alive():
 @app.route('/ask', methods=['POST'])
 def ask_bot():
     question = request.json["question"]
-    answer = bot.ask(question)
+    log = request.json["chat_log"]
+    answer = bot.ask(question, log)
     # run keep_alive everytime there is a request
 
     return answer
