@@ -11,6 +11,7 @@ def tag_visible(element):
 
 
 def text_from_html(body):
+    print(body)
     soup = BeautifulSoup(body, 'lxml')
     texts = soup.findAll(text=True)
     visible_texts = filter(tag_visible, texts)  
