@@ -1,1 +1,1 @@
-web: gunicorn wsgi:bot
+web: gunicorn app.bot:bot
