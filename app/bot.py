@@ -1,7 +1,7 @@
 import json
 import openai
 import os
-import keep_alive
+import main
 
 openai.api_key = os.getenv("GPT3_API_KEY")
 completion = openai.Completion()
@@ -39,4 +39,4 @@ def ask(question, chat_log=None):
 
     return answer
 
-keep_alive.keep_alive()
+main.keep_alive()

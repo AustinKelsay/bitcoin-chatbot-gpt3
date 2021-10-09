@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from threading import Thread
-import app
+import bot
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def keep_alive():
 @app.route('/ask', methods=['POST'])
 def ask_bot():
     question = request.json["question"]
-    answer = main.ask(question)
+    answer = bot.ask(question)
 
     # run keep_alive everytime there is a request
 
