@@ -15,9 +15,8 @@ def run():
 
 @app.route('/ask', methods=['POST'])
 def ask_bot():
-    question = request.json["question"]
     log = request.json["chat_log"]
-    answer = ask(question, log)
+    answer = ask(log)
     return answer
 
 if __name__ == "__main__":
