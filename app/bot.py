@@ -1,6 +1,9 @@
 import json
 import openai
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 openai.api_key = os.getenv("GPT3_API_KEY")
 completion = openai.Completion()
@@ -27,6 +30,7 @@ def append_interaction_to_chat_log(question, answer, chat_log=None):
 
 
 def ask(question, chat_log=None):
+    print(model)
     if chat_log is None:
         chat_log = start_chat_log
     prompt = f'{chat_log}World: {question}\nAI:'
