@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import request
 from app.bot import ask
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def main():
