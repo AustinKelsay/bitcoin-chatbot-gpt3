@@ -1,7 +1,6 @@
 import json
 import openai
 import os
-import main
 
 openai.api_key = os.getenv("GPT3_API_KEY")
 completion = openai.Completion()
@@ -38,5 +37,3 @@ def ask(question, chat_log=None):
     answer = response.choices[0].text.strip()
 
     return answer
-
-main.keep_alive()
