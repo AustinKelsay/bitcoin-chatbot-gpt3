@@ -18,3 +18,6 @@ def ask_bot():
     answer = ask(question)
     # run keep_alive everytime there is a request
     return answer
+
+if __name__ == "__main__":
+    app.run()
