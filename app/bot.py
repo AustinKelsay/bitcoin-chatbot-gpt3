@@ -30,7 +30,6 @@ def append_interaction_to_chat_log(question, answer, chat_log=None):
 
 
 def ask(question, chat_log=None):
-    print(model)
     if chat_log is None:
         chat_log = start_chat_log
     prompt = f'{chat_log}World: {question}\nAI:'
