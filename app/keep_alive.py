@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from threading import Thread
-import main
+import app
 
 app = Flask(__name__)
 
