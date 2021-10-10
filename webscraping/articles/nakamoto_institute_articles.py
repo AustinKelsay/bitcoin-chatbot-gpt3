@@ -55,7 +55,7 @@ for article in articles:
         print(count)
 
 # Output training data to json file
-with open('nakamoto_institute_scrape.json', 'w') as outfile:
+with open('./datasets/nakamoto_institute_scrape.json', 'w') as outfile:
     for d in data:
         json.dump(d, outfile)
         outfile.write('\n')
