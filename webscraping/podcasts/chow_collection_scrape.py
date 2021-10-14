@@ -55,7 +55,7 @@ with webdriver.Firefox() as driver:
                         except:
                             print("Error")
 
-with open('./datasets/chow_collection_scrape.json', 'w') as outfile:    
+with open('./datasets/chow_collection_scrape.jsonl', 'w') as outfile:    
     for obj in data:
         json.dump(obj, outfile)
         outfile.write('\n')
