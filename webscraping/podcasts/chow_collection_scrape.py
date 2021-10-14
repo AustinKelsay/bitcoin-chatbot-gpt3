@@ -12,6 +12,7 @@ article_blacklist = ["A Private Collector’s Guide to Art Collecting", "An intr
 "Thoughts on Art Collecting", "Christ Pantocrator mosaic by Yury Yarin"]
 article_links = []
 data = []
+openai_data = []
 
 def click_show_more():
     try:
@@ -54,6 +55,22 @@ with webdriver.Firefox() as driver:
                             data.append(j)
                         except:
                             print("Error")
+                    # Now create prompt-completion dataset for openai fine tune model
+                    count = 0
+                    for section in text:
+                        try:
+                            j = {
+                                "prompt": text[count].text,
+                                "completion": text[count+1].text
+                            }
+                            openai_data.append(j)
+                        except:
+                            print("Error")
+
+with open('./datasets/chow_collection_scrape.json', 'w') as outfile:    
+    for obj in data:
+        json.dump(obj, outfile)
+        outfile.write('\n')
 
 with open('./datasets/chow_collection_scrape.jsonl', 'w') as outfile:    
     for obj in data:
