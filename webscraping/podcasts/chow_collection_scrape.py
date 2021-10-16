@@ -78,7 +78,7 @@ with open('./datasets/chow_collection_scrape.json', 'w') as outfile:
         json.dump(obj, outfile)
         outfile.write('\n')
 
-with open('./datasets/chow_collection_scrape.jsonl', 'w') as outfile:    
+with open('./datasets/openai_datasets/chow_collection_scrape.jsonl', 'w') as outfile:    
     for obj in openai_data:
         json.dump(obj, outfile)
         outfile.write('\n')
