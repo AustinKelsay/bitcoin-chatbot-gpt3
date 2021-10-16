@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-openai.api_key = os.getenv("GPT3_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 completion = openai.Completion()
 
 model = os.getenv("FINE_TUNE_MODEL_V1")
