@@ -43,12 +43,13 @@ with webdriver.Firefox() as driver:
                 wait.until(presence_of_all_elements_located((By.XPATH, "//p")))
                 text = driver.find_elements_by_xpath("//p")
                 title = driver.find_element_by_xpath("//h1")
-                podcast_link = driver.find_elements_by_xpath("//a[@class='eh jf']")
+                podcast_link = driver.find_element_by_xpath("//a[contains(text(), 'http')]")
+                print(podcast_link.get_attribute("href"))
                 if title.text not in article_blacklist:
                     for section in text:
                         try:
                             j = {
-                                "link": podcast_link,
+                                "link": podcast_link.get_attribute("href"),
                                 "title": title.text,
                                 "text": section.text
                             }
@@ -56,14 +57,19 @@ with webdriver.Firefox() as driver:
                         except:
                             print("Error")
                     # Now create prompt-completion dataset for openai fine tune model
-                    count = 0
-                    for section in text:
+                    for count in range(len(text)):
                         try:
-                            j = {
-                                "prompt": text[count].text,
-                                "completion": text[count+1].text
-                            }
-                            openai_data.append(j)
+                            # Only create the object every other iteration
+                            if count % 2 == 0:
+                                # Make sure we're not grabbing empty text (This will skip over prompt/completions that are empty, have a podcast link, or are an outro to the podcast)
+                                if text[count].text != "" and text[count+1].text != "":
+                                    prompt = text[count].text
+                                    completion = text[count+1].text
+                                    j = {
+                                        "prompt": text[count].text,
+                                        "completion": text[count+1].text
+                                    }
+                                    openai_data.append(j)
                         except:
                             print("Error")
 
@@ -73,6 +79,6 @@ with open('./datasets/chow_collection_scrape.json', 'w') as outfile:
         outfile.write('\n')
 
 with open('./datasets/chow_collection_scrape.jsonl', 'w') as outfile:    
-    for obj in data:
+    for obj in openai_data:
         json.dump(obj, outfile)
         outfile.write('\n')
