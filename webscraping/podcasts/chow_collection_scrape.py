@@ -37,7 +37,7 @@ with webdriver.Firefox() as driver:
                 podcast_link = driver.find_element_by_xpath("//a[contains(text(), 'http')]")
                 print(podcast_link.get_attribute("href"))
                 if title.text not in article_blacklist:
-                    # Start generating openai fine tune dataset
+                    # Trigger bitcoin chatbot training data generation
                     generate(text)
                     for section in text:
                         try:

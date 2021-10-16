@@ -18,7 +18,7 @@ def generate(prompts):
         except:
             print("Error")
 
-    with open('./datasets/openai_datasets/chow_collection_scrape.jsonl', 'a') as outfile:    
+    with open('./datasets/openai_datasets/bitcoin_chatbot_training_data.jsonl', 'a') as outfile:    
         for obj in openai_data:
             json.dump(obj, outfile)
             outfile.write('\n')

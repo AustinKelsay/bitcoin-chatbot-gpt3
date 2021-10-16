@@ -1,4 +1,5 @@
 import json
+from gpt3.generate_training_data import generate
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -25,6 +26,8 @@ with webdriver.Firefox() as driver:
             text = driver.find_elements_by_xpath("//p")
             # Get the name of the chapter which is index 1 in the list of h2 elements
             chapter = driver.find_elements_by_xpath("//h2")
+            # Trigger bitcoin chatbot training data generation
+            generate(text)
             for section in text:
                 j = {
                     "link": article,

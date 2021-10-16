@@ -11,10 +11,10 @@ openai_training_file = os.getenv("TRAINING_FILE")
 #                        n_epochs=5,
 #                        batch_size=32,)
 
-print(openai.FineTune.list())
-openai_fine_tune_list = openai.File.list()
-new_model = openai_fine_tune_list['data'][-1]['fine_tune_model']
+# print(openai.FineTune.list())
+openai_fine_tune_list = openai.FineTune.list()
+new_model = openai_fine_tune_list["data"][-1]["fine_tuned_model"]
 print(new_model)
 # with open("gpt3/.env", 'a') as outfile:    
 #         outfile.write('\n')
-#         json.dump('FINE_TUNE_MODEL='+new_model, outfile, separators=('"', ''))git sta
+#         json.dump('FINE_TUNE_MODEL='+new_model, outfile, separators=('"', ''))
