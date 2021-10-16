@@ -17,4 +17,4 @@ new_file = openai_file_list['data'][-1]['id']
 
 # with open("gpt3/.env", 'a') as outfile:    
 #         outfile.write('\n')
-#         json.dump('FINE_TUNE_MODEL='+new_file, outfile, separators=('"', ''))
+#         json.dump('TRAINING_FILE='+new_file, outfile, separators=('"', ''))
