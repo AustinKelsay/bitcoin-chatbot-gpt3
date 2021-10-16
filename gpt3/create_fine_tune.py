@@ -17,4 +17,4 @@ new_model = openai_fine_tune_list['data'][-1]['fine_tune_model']
 print(new_model)
 # with open("gpt3/.env", 'a') as outfile:    
 #         outfile.write('\n')
-#         json.dump('FINE_TUNE_MODEL='+new_model, outfile, separators=('"', ''))
+#         json.dump('FINE_TUNE_MODEL='+new_model, outfile, separators=('"', ''))git sta
