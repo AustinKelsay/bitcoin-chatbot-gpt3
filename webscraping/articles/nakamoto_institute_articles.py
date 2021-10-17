@@ -1,4 +1,5 @@
 import json
+from gpt3.generate_training_data import generate
 from bs4 import BeautifulSoup
 from bs4.element import Comment
 import urllib.request
@@ -42,7 +43,8 @@ for article in articles:
         driver.get(article)
         title = driver.find_element_by_xpath("//h1").text
         body = driver.find_elements_by_xpath("//p")
-        completion = ''
+        # Trigger bitcoin chatbot training data generation
+        generate(body)
         for paragraph in body:
             obj = {
                 'link': article,
