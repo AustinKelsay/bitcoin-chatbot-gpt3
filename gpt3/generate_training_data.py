@@ -11,8 +11,8 @@ def generate(prompts):
                     prompt = prompts[count].text
                     completion = prompts[count+1].text
                     j = {
-                        "prompt": prompt,
-                        "completion": completion
+                        "prompt": f"{prompt}\n",
+                        "completion": f"{completion}\n"
                     }
                     openai_data.append(j)
         except:
