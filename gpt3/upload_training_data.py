@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.File.create(
-  file=open("./datasets/openai_datasets/bitcoin_chatbot_training_data.jsonl"),
+  file=open("./datasets/openai_datasets/bitcoin_chatbot_training_data_prepared.jsonl"),
   purpose='fine-tune'
 )
 
