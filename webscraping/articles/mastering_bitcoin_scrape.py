@@ -11,7 +11,7 @@ parent_articles = []
 child_articles = []
 data =[]
 
-def Mastering_bitcoin_scrape():
+def scrape():
     with webdriver.Firefox() as driver:
         wait = WebDriverWait(driver, 10)
         driver.get("https://github.com/bitcoinbook/bitcoinbook/blob/develop/book.asciidoc")

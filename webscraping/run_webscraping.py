@@ -1,8 +1,12 @@
-from articles.nakamoto_institute_articles import Nakamoto_institute_articles
-from articles.mastering_bitcoin_scrape import Mastering_bitcoin_scrape
-from podcasts.chow_collection_scrape import Chow_collection_scrape
+import subprocess
+import articles.nakamoto_institute_articles as Nakamoto_institute_articles
+import articles.mastering_bitcoin_scrape as Mastering_bitcoin_scrape
+import podcasts.chow_collection_scrape as Chow_collection_scrape
 
 if __name__ == '__main__':
-    Mastering_bitcoin_scrape()
-    Chow_collection_scrape()
-    
+    try:
+        Mastering_bitcoin_scrape.scrape()
+        Chow_collection_scrape.scrape()
+        Nakamoto_institute_articles.scrape()
+    except Exception as e:
+        print(e + "Error: unable to start subprocess")

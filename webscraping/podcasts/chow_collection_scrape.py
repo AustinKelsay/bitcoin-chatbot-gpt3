@@ -14,7 +14,7 @@ article_blacklist = ["A Private Collector’s Guide to Art Collecting", "An intr
 article_links = []
 data = []
 
-def Chow_collection_scrape():
+def scrape():
     with webdriver.Firefox() as driver:
         wait = WebDriverWait(driver, 10)
         driver.get("https://chowcollection.medium.com")
