@@ -13,11 +13,14 @@ def generate(prompts):
                     cleaned_prompt_text = prompt_text.translate(str.maketrans('', '', string.punctuation))
                     completion_text = prompts[count+1].text
                     cleaned_completion_text = completion_text.translate(str.maketrans('', '', string.punctuation))
-                    j = {
-                        "prompt": f"{cleaned_prompt_text}\n",
-                        "completion": f"{cleaned_completion_text}\n"
-                    }
-                    openai_data.append(j)
+                    # Get rid of any text that is shorter than 35 chars
+                    # Get rid of any text that has no whitespace in it
+                    if len(cleaned_prompt_text) > 35 and cleaned_prompt_text.find(" ") != -1 and len(cleaned_completion_text) > 35 and cleaned_completion_text.find(" ") != -1:
+                        j = {
+                            "prompt": f"{cleaned_prompt_text}\n",
+                            "completion": f"{cleaned_completion_text}\n"
+                        }
+                        openai_data.append(j)
         except:
             print("Error")
 
