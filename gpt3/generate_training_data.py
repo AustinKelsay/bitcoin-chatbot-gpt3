@@ -24,7 +24,7 @@ def generate(prompts):
                         strencode_completion = cleaned_completion_text.encode("ascii", "ignore")
                         strdecode_completion = strencode_completion.decode()
                         j = {
-                            "prompt": f"{strdecode_prompt}\n",
+                            "prompt": f"{strdecode_prompt} ->",
                             "completion": f"{strdecode_completion}\n"
                         }
                         openai_data.append(j)
