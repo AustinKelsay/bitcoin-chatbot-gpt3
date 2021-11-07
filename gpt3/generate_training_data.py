@@ -15,19 +15,21 @@ def generate(prompts):
                     cleaned_completion_text = completion_text.translate(str.maketrans('', '', string.punctuation))
                     # Get rid of any text that is shorter than 35 chars
                     # Get rid of any text that has no whitespace in it
-                    if len(cleaned_prompt_text) > 35 and cleaned_prompt_text.find(" ") != -1 and len(cleaned_completion_text) > 35 and cleaned_completion_text.find(" ") != -1:
-                        # Remove all non ascii chars
-                        # prompts
-                        strencode_prompt = cleaned_prompt_text.encode("ascii", "ignore")
-                        strdecode_prompt = strencode_prompt.decode()
-                        # completions
-                        strencode_completion = cleaned_completion_text.encode("ascii", "ignore")
-                        strdecode_completion = strencode_completion.decode()
-                        j = {
-                            "prompt": f"{strdecode_prompt} ->",
-                            "completion": f"{strdecode_completion}\n"
-                        }
-                        openai_data.append(j)
+                    if len(cleaned_prompt_text) > 50 and cleaned_prompt_text.find(" ") != -1 and len(cleaned_completion_text) > 50 and cleaned_completion_text.find(" ") != -1:
+                        # get rid of any text that has no characters in it
+                        if cleaned_prompt_text.count(" ") < [x for x in cleaned_prompt_text if x.isalpha()] and cleaned_completion_text.count(" ") < [x for x in cleaned_completion_text if x.isalpha()]:
+                            # Remove all non ascii chars
+                            # prompts
+                            strencode_prompt = cleaned_prompt_text.encode("ascii", "ignore")
+                            strdecode_prompt = strencode_prompt.decode()
+                            # completions
+                            strencode_completion = cleaned_completion_text.encode("ascii", "ignore")
+                            strdecode_completion = strencode_completion.decode()
+                            j = {
+                                "prompt": f"{strdecode_prompt} ->",
+                                "completion": f"{strdecode_completion}\n"
+                            }
+                            openai_data.append(j)
         except:
             print("Error")
 

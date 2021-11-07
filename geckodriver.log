@@ -32033,3 +32033,21 @@ JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILU
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+2021-11-05 09:53:19.867 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSButton: 0x1407d6400>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.868 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSButton: 0x1407d7000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.869 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSButton: 0x1407d4000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.870 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSButton: 0x1407d7800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.871 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSButton: 0x1407d4800>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.872 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x1407d3000>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+2021-11-05 09:53:19.872 firefox-bin[90163:2618275] Warning: Expected min height of view: (<NSPopoverTouchBarItemButton: 0x1407ebc00>) to be less than or equal to 30 but got a height of 32.000000. This error will be logged once per view in violation.
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: NotFoundError: Could not move source file(/var/folders/d6/0qljplyj11l0pn2wylcv2dym0000gn/T/rust_mozprofileTxLUf2/bookmarkbackups/bookmarks-2021-11-06_11_LwA72U-eZ8vxEgYMasznCA==.jsonlz4) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
