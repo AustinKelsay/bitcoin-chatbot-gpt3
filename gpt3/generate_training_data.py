@@ -23,6 +23,7 @@ def generate(prompts):
                         # completions
                         strencode_completion = cleaned_completion_text.encode("ascii", "ignore")
                         strdecode_completion = strencode_completion.decode()
+                        # filter out any strings that have more whitespaces than chars
                         if len(strdecode_completion) > strdecode_completion.count(' ') and len(strdecode_prompt) > strdecode_prompt.count(' '):
                             j = {
                                 "prompt": f"{strdecode_prompt} ->",
