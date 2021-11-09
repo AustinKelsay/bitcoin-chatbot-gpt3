@@ -1,5 +1,6 @@
 import json
 import string
+import re
 
 def generate(prompts):
     openai_data = []
@@ -25,9 +26,12 @@ def generate(prompts):
                         strdecode_completion = strencode_completion.decode()
                         # filter out any strings that have more whitespaces than chars
                         if len(strdecode_completion) > strdecode_completion.count(' ') and len(strdecode_prompt) > strdecode_prompt.count(' '):
+                            # Filter out any string with more than one white space in between characters
+                            re.sub(' +', ' ', strdecode_prompt)
+                            re.sub(' +', ' ', strdecode_completion)
                             j = {
-                                "prompt": f"{strdecode_prompt} ->",
-                                "completion": f"{strdecode_completion}\n"
+                                "prompt": f"{strdecode_prompt}\n\n###\n\n",
+                                "completion": strdecode_completion
                             }
                             openai_data.append(j)
         except:
