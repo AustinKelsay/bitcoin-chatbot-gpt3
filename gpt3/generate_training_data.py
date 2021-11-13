@@ -24,11 +24,13 @@ def generate(prompts):
                         # completions
                         strencode_completion = cleaned_completion_text.encode("ascii", "ignore")
                         strdecode_completion = strencode_completion.decode()
-                        # filter out any strings that have more whitespaces than chars
-                        if len(strdecode_completion) > strdecode_completion.count(' ') and len(strdecode_prompt) > strdecode_prompt.count(' '):
-                            # Filter out any string with more than one white space in between characters
-                            re.sub(' +', ' ', strdecode_prompt)
-                            re.sub(' +', ' ', strdecode_completion)
+                        # Filter out any string with more than one white space in between characters
+                        re.sub("\s\s+", ' ', strdecode_prompt)
+                        re.sub("\s\s+", ' ', strdecode_completion)
+                        # Get rid of any text that has more whitespaces than chars
+                        prompt_num_of_letters = len(strencode_prompt) - strencode_prompt.count(" ")
+                        completion_num_of_letters = len(strencode_completion) - strencode_completion.count(" ")
+                        if len(strencode_prompt) / 4 > prompt_num_of_letters and len(strencode_completion) / 4 > completion_num_of_letters:
                             j = {
                                 "prompt": f"{strdecode_prompt}\n\n###\n\n",
                                 "completion": strdecode_completion
