@@ -33,7 +33,7 @@ def generate(prompts):
                         if final_prompt != False and final_completion != False:
                             j = {
                                 "prompt": f"{final_prompt}\n\n###\n\n",
-                                "completion": f"{final_completion}END"
+                                "completion": final_completion
                             }
                             openai_data.append(j)
 
