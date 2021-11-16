@@ -16,9 +16,8 @@ start_chat_log = '''User: How does proof-of-work work in Bitcoin?\n\n###\n\nBot:
 def ask(chat_log):
     prompt = f'{start_chat_log}\n\n###\n\n{chat_log}\n\n###\n\nBot:'
     response = completion.create(
-        prompt=prompt, model=model, stop=['\n'], temperature=0.5,
-        top_p=1, frequency_penalty=0, presence_penalty=0.3, best_of=1,
-        max_tokens=300)
+        prompt=prompt, model=model, stop=['\n\n###\n\n'], temperature=0.5,
+        frequency_penalty=1, presence_penalty=1, max_tokens=300)
     answer = response.choices[0].text.strip()
     
     return answer
