@@ -1,23 +1,20 @@
-from flask import Flask
-from flask import request
+from fastapi import FastAPI
+from pydantic import BaseModel
 from app.bot import ask
-from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
 
-@app.route('/')
+class ChatLog(BaseModel):
+    chat_log: str
+
+@app.get('/')
 def main():
     return "Bot online"
 
 def run():
     app.run(host="0.0.0.0", port=8080)
 
-@app.route('/ask', methods=['POST'])
-def ask_bot():
-    log = request.json["chat_log"]
+@app.post("/ask")
+def ask_bot(log: ChatLog):
     answer = ask(log)
     return answer
-
-if __name__ == "__main__":
-    app.run()
