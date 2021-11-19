@@ -24,5 +24,5 @@ def run():
 
 @app.post("/ask")
 def ask_bot(log: ChatLog):
-    answer = ask(log)
+    answer = ask(log.chat_log)
     return answer
