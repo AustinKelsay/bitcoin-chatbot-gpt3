@@ -24,10 +24,10 @@ Bot: Trading is risky and I dont give financial advice, I only suggest stacking 
 User: Thank you for the help!\n\n###\n\n
 Bot: You're welcome, come back anytime!'''
 
-async def ask(chat_log: str):
+def ask(chat_log: str):
     prompt = f'{start_chat_log}\n\n###\n\n{chat_log}\n\n###\n\nBot:'
 
-    response = await completion.create(
+    response = completion.create(
         prompt=prompt, model=model, stop=['\n\n###\n\n'], temperature=0.3,
         frequency_penalty=1, presence_penalty=1, max_tokens=300)
     answer = response.choices[0].text.strip()
