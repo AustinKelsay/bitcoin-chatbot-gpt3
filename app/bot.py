@@ -25,8 +25,8 @@ User: Thank you for the help!\n\n###\n\n
 Bot: You're welcome, come back anytime!'''
 
 def ask(chat_log: str):
-    prompt = f'{start_chat_log}\n\n###\n\n{chat_log}\n\n###\n\nBot:'
-
+    prompt = f'{start_chat_log}\n\n###\n\n{chat_log}Bot:'
+    print(prompt)
     response = completion.create(
         prompt=prompt, model=model, stop=['\n\n###\n\n'], temperature=0.4,
         frequency_penalty=1, presence_penalty=1, max_tokens=350)
