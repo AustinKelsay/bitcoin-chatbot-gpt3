@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.bot import ask
 
+class ChatLog(BaseModel):
+    chat_log: str
+
 app = FastAPI()
 
 app.add_middleware(
@@ -11,9 +14,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-class ChatLog(BaseModel):
-    chat_log: str
 
 @app.get('/')
 def main():

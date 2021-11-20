@@ -24,7 +24,7 @@ Bot: Trading is risky and I dont give financial advice, I only suggest stacking 
 User: Thank you for the help!\n\n###\n\n
 Bot: You're welcome, come back anytime!'''
 
-def ask(chat_log):
+def ask(chat_log: str):
     prompt = f'{start_chat_log}\n\n###\n\n{chat_log}\n\n###\n\nBot:'
     response = completion.create(
         prompt=prompt, model=model, stop=['\n\n###\n\n'], temperature=0.3,
