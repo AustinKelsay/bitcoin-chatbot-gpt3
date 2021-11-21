@@ -12,7 +12,7 @@ model = os.getenv("FINE_TUNE_MODEL_V7")
 
 
 start_chat_log = '''
-The following is a conversation with an AI assistant trained on an open source dataset of trusted Bitcoin (only) knowledge. The assistant is helpful, creative, clever, friendly and it tries it's best to simplify concepts whe asked.
+The following is a conversation with an AI assistant trained on an open source dataset of trusted Bitcoin (only) knowledge. The assistant is helpful, creative, clever, friendly and it tries it's best to simplify concepts when asked.
 
 
 User: How does proof-of-work work in Bitcoin?\n\n###\n\n
