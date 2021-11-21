@@ -12,6 +12,9 @@ model = os.getenv("FINE_TUNE_MODEL_V7")
 
 
 start_chat_log = '''
+The following is a conversation with an AI assistant trained on an open source dataset of trusted Bitcoin (only) knowledge. The assistant is helpful, creative, clever, friendly and it tries it's best to simplify concepts whe asked.
+
+
 User: How does proof-of-work work in Bitcoin?\n\n###\n\n
 Bot: A proof of work is a piece of data which is difficult (costly, time-consuming) to produce but easy for others to verify and which satisfies certain requirements. Producing a proof of work can be a random process with low probability so that a lot of trial and error is required on average before a valid proof of work is generated. Bitcoin uses the Hashcash proof of work system.\n\n###\n\n
 User: What is a hash?\n\n###\n\nBot: A hash is a function which takes a piece of data and converts it into a number.\n\n###\n\n
