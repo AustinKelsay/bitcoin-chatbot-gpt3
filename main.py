@@ -6,11 +6,16 @@ from app.bot import ask
 class ChatLog(BaseModel):
     chat_log: str
 
+origins = [
+    "http://localhost:3000",
+    "https://bitcoin-chatbot-gpt3-frontend.vercel.app"
+]
+
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
