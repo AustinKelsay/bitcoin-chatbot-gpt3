@@ -1,11 +1,11 @@
+from pandarallel import pandarallel
+import psutil
 import pandas as pd
 import json as j
 import re
 import num2words
 import spacy
 spacy.util.fix_random_seed(0)
-import psutil
-from pandarallel import pandarallel
 
 
 def wrangle_jsonl(path: str):
@@ -15,7 +15,7 @@ def wrangle_jsonl(path: str):
     Parameters
     ----------
     None
-    
+
     Returns
     -------
     df: pandas datafarme 
@@ -33,7 +33,7 @@ def wrangle_jsonl(path: str):
     # json object into a dictionary
     df_inter['json_element'].apply(j.loads)
 
-    # Converting any semi-structured json data with a normalize function 
+    # Converting any semi-structured json data with a normalize function
     # json keys are made into a flat table
     df = pd.json_normalize(df_inter['json_element'].apply(j.loads))
 
@@ -85,7 +85,8 @@ def clean_suggestion_text(uncleaned):
     end = 'END'
     replace_with = ""
     removed_line = re.sub(newline_break, replace_with, uncleaned)
-    nearly_clean = re.sub(r"(\d+)", lambda x: num2words.num2words(int(x.group(0))), removed_line)
+    nearly_clean = re.sub(
+        r"(\d+)", lambda x: num2words.num2words(int(x.group(0))), removed_line)
     almost_clean = re.sub(r'https?://[^\s]+', '', nearly_clean)
     cleaned = re.sub(end, replace_with, almost_clean)
 
@@ -93,21 +94,6 @@ def clean_suggestion_text(uncleaned):
     return cleaned.lower()
 
 
-# def tokenize(doc):
-#     tokens = []
-#     doc = nlp(doc)
-#     for token in doc:
-#         # Filtering out punctuation, and stop words. Filtering in lemmas and case normalizion.
-#         if ((token.is_punct != True) and
-#             (token.is_lower != True) and
-#             (token.lemma_ != 'PRON-') and
-#             (token.is_stop == False)):
-#                 tokens.append(token.lemma_)
-#     return tokens
-
-
-
-    
 def listintostring(string):
     '''
     This function converts lists into strings
