@@ -38,7 +38,7 @@ def scrape():
                     data.append(j)
 
 
-    with open('./datasets/mastering_bitcoin_scrape.json', 'w') as outfile:    
+    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'w') as outfile:    
         for obj in data:
             json.dump(obj, outfile)
             outfile.write('\n')

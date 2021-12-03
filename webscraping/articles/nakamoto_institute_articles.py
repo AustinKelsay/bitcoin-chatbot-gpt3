@@ -58,7 +58,7 @@ def scrape():
             print(count)
 
     # Output training data to json file
-    with open('./datasets/nakamoto_institute_scrape.json', 'w') as outfile:
+    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'w') as outfile:
         for d in data:
             json.dump(d, outfile)
             outfile.write('\n')
