@@ -51,7 +51,7 @@ def scrape():
                             except:
                                 print("Error")
 
-    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'w') as outfile:
+    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'a') as outfile:
         for obj in data:
             json.dump(obj, outfile)
             outfile.write('\n')

@@ -1,7 +1,5 @@
 import json
 from gpt3.generate_training_data import generate
-from bs4 import BeautifulSoup
-from bs4.element import Comment
 import urllib.request
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -58,7 +56,7 @@ def scrape():
             print(count)
 
     # Output training data to json file
-    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'w') as outfile:
+    with open('./datasets/knowledge_datasets/bitcoin_knowledge.json', 'a') as outfile:
         for d in data:
             json.dump(d, outfile)
             outfile.write('\n')
